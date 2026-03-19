@@ -1,0 +1,574 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --naranja: #FF8C00;
+    --naranja-hover: #e67e00;
+    --gris-oscuro: rgba(45, 45, 45, 0.95);
+    --bg-gris-claro: #F8F9FA;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a2e;
+    background: var(--bg-gris-claro);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.text-naranja {
+    color: var(--naranja) !important;
+}
+
+.bg-naranja {
+    background-color: var(--naranja) !important;
+}
+
+.bg-negro {
+    background-color: var(--negro) !important;
+}
+
+.border-naranja {
+    border-color: var(--naranja) !important;
+}
+
+.table th {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section-pad {
+    padding: 80px 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(255,255,255,0.98);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 15px 0;
+    transition: 0.3s;
+}
+
+.nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    font-size: 26px;
+    color: #000;
+    font-style: italic;
+}
+
+.logo span, .logo i {
+    color: var(--naranja);
+}
+
+.logo i {
+    font-size: 28px;
+    margin-right: 5px;
+    font-style: normal;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+nav a {
+    font-size: 15px;
+    font-weight: 600;
+    color: #444;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--naranja);
+    border-color: var(--naranja);
+}
+
+.btn-nav-registro {
+    background: var(--naranja);
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.btn-nav-registro:hover {
+    background: var(--naranja-hover);
+    transform: translateY(-2px);
+}
+
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg, .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    background: linear-gradient(to right, rgba(20,20,20,0.9) 0%, rgba(20,20,20,0.6) 50%, rgba(20,20,20,0.4) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-desc {
+    font-size: 20px;
+    color: #e5e7eb;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.hero-subtext {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 40px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-naranja {
+    background: var(--naranja);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-naranja:hover, .btn-login-submit:hover {
+    background: var(--naranja-hover);
+}
+
+.login-card {
+    background: var(--gris-oscuro);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    color: white;
+}
+
+.login-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.login-card p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 24px;
+}
+
+.form-group-login {
+    margin-bottom: 16px;
+}
+
+.form-group-login input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-group-login input:focus {
+    box-shadow: 0 0 0 2px var(--naranja);
+}
+
+.btn-login-submit {
+    width: 100%;
+    background: var(--naranja);
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.login-footer {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #aaa;
+    border-top: 1px solid #444;
+    padding-top: 16px;
+    text-align: center;
+}
+
+.login-footer a {
+    color: var(--naranja);
+    font-weight: 600;
+}
+
+.section-header {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #000;
+    position: relative;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--naranja);
+}
+
+#nosotros {
+    background: linear-gradient(90deg, #F8F9FA 0%, #F8F9FA 75%, #F0F0F0 100%);
+}
+
+.nosotros-texto-intro {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.nosotros-texto-intro h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.nosotros-texto-intro p, .card-nosotros p, .card-servicio p {
+    font-size: 14px;
+    color: #666;
+}
+
+.nosotros-grid, .servicios-grid, .sucursales-grid {
+    display: grid;
+    gap: 24px;
+}
+
+.nosotros-grid, .sucursales-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.nosotros-grid {
+    max-width: 1000px;
+    margin: 0 auto 40px;
+}
+
+.card-nosotros, .card-servicio, .card-sucursal {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    border: 1px solid #eaeaea;
+}
+
+.card-nosotros {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.card-nosotros i {
+    font-size: 35px;
+    color: #000;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.card-nosotros h4, .card-servicio h4 {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+#servicios {
+    background-color: #F8F9FA;
+}
+
+.servicios-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.card-servicio {
+    padding: 40px 24px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card-servicio:hover {
+    transform: translateY(-5px);
+}
+
+.card-servicio i {
+    font-size: 40px;
+    color: var(--naranja);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.card-servicio h4 {
+    line-height: 1.3;
+}
+
+#sucursales {
+    background-color: #F8F9FA;
+    padding-top: 40px;
+}
+
+.card-sucursal {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-sucursal h3 {
+    color: var(--naranja);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.info-line {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.info-line i {
+    color: var(--naranja);
+}
+
+.link-mapa {
+    margin-top: auto;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    padding-top: 20px;
+}
+
+.link-mapa:hover, .link-mapa:hover i {
+    color: var(--naranja);
+}
+
+h3.text-naranja {
+    font-size: 1.5rem !important;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+h3.text-naranja i {
+    font-size: 1.6rem;
+    background: rgba(255, 140, 0, 0.1);
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--naranja);
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+
+.card-body.p-0 {
+    border-top: 4px solid var(--naranja);
+}
+
+.table th {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    padding: 16px;
+    background-color: var(--negro);
+    color: var(--blanco);
+    border: none;
+}
+
+.table td {
+    padding: 16px;
+    font-size: 0.95rem;
+    color: #444;
+    vertical-align: middle;
+}
+
+.timeline-estado {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 25px;
+}
+
+.timeline-estado::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 30px;
+    bottom: -20px;
+    width: 2px;
+    background-color: #dee2e6;
+}
+
+.timeline-estado:last-child::before {
+    display: none;
+}
+
+.timeline-icono {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background-color: var(--blanco);
+    border: 2px solid #dee2e6;
+    z-index: 1;
+}
+
+.estado-completado .timeline-icono {
+    border-color: #198754;
+    background-color: #198754;
+    color: white;
+}
+
+.estado-actual .timeline-icono {
+    border-color: var(--naranja);
+    background-color: var(--naranja);
+    color: white;
+    box-shadow: 0 0 0 4px rgba(255,140,0,0.2);
+}
+
+.estado-pendiente .timeline-icono {
+    color: #dee2e6;
+}
+
+.bolibot-chat {
+    background-color: #f4f5f7;
+    height: 350px;
+    overflow-y: auto;
+}
+
+.bolibot-mensaje {
+    max-width: 85%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.bot-msg {
+    background-color: var(--blanco);
+    border-bottom-left-radius: 2px;
+    color: var(--negro);
+}
+
+.user-msg {
+    background-color: var(--naranja);
+    color: var(--blanco);
+    border-bottom-right-radius: 2px;
+}
+
+@media (max-width: 900px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 40px;
+    }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .nosotros-grid, .sucursales-grid {
+        grid-template-columns: 1fr;
+    }
+    .servicios-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    nav {
+        display: none;
+    }
+}
