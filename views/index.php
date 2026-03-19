@@ -7,13 +7,13 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
 </head>
 <body>
   
   <header>
     <div class="nav-inner">
-      <a href="index.php" class="logo">
+      <a href="<?= url('/') ?>" class="logo">
         <i class="bi bi-globe-americas"></i> BOLI<span>BOX</span>
       </a>
       <nav>
@@ -21,7 +21,7 @@
         <a href="#nosotros">Quiénes Somos</a>
         <a href="#servicios">Servicios</a>
         <a href="#sucursales">Sucursales</a>
-        <a href="registro.php" class="btn-nav-registro">Regístrate</a>
+        <a href="<?= url('registro') ?>">Regístrate</a>
       </nav>
     </div>
   </header>
@@ -47,7 +47,7 @@
         <h3>Iniciar sesión</h3>
         <p>Ingresa tus credenciales para acceder a tu panel y conocer el estado de tus paquetes en tiempo real.</p>
         
-        <form action="#" method="POST">
+        <form action="<?= url('login') ?>" method="POST">
           <div class="form-group-login">
             <input type="text" name="usuario" placeholder="Usuario" required />
           </div>
@@ -60,7 +60,8 @@
         </form>
         
         <div class="login-footer">
-          <i class="bi bi-person-plus"></i> ¿Aún no eres cliente? <a href="registro.php">Regístrate aquí</a>
+          <i class="bi bi-person-plus"></i> ¿Aún no eres cliente? 
+          <a href="<?= url('registro') ?>">Regístrate aquí</a>
         </div>
       </div>
     </div>

@@ -7,17 +7,17 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
   
 </head>
 <body>
 
   <header>
     <div class="nav-inner">
-      <a href="index.php" class="logo">
+      <a href="<?= url('/') ?>" class="logo">
         <i class="bi bi-globe-americas"></i> BOLI<span>BOX</span>
       </a>
-      <a href="index.php" class="btn-volver">
+      <a href="<?= url('/') ?>" class="btn-volver">
         <i class="bi bi-arrow-left"></i> Volver al inicio
       </a>
     </div>
@@ -28,7 +28,7 @@
       <h2>Crea tu cuenta</h2>
       <p>Regístrate para empezar a importar tus paquetes con nosotros.</p>
       
-      <form action="#" method="POST">
+      <form action="<?= url('registro') ?>" method="POST">
         <div class="form-group">
           <label>Nombre Completo</label>
           <input type="text" placeholder="Ej. Juan Pérez" required>
@@ -59,7 +59,7 @@
       </form>
 
       <div class="registro-footer">
-        ¿Ya tienes una cuenta? <a href="index.php">Inicia sesión aquí</a>
+        ¿Ya tienes una cuenta? <a href="<?= url('/') ?>">Inicia sesión aquí</a>
       </div>
     </div>
   </div>

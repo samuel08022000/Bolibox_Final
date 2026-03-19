@@ -7,26 +7,25 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid px-4">
-            <a class="navbar-brand" href="cliente.php"><i class="bi bi-box-seam text-naranja"></i> BOLI<span class="text-naranja">BOX</span> | Cliente</a>
+            <a class="navbar-brand" href="<?= url('cliente') ?>"><i class="bi bi-box-seam text-naranja"></i> BOLI<span class="text-naranja">BOX</span> | Cliente</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuCliente">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="menuCliente">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" href="cliente.php"><i class="bi bi-house-door"></i> Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="productos.php"><i class="bi bi-shop"></i> Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mis_pedidos.php"><i class="bi bi-box2"></i> Mis Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="<?= url('cliente') ?>"><i class="bi bi-house-door"></i> Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= url('productos') ?>"><i class="bi bi-shop"></i> Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= url('mis_pedidos') ?>"><i class="bi bi-box2"></i> Mis Pedidos</a></li>
                 </ul>
                 <div class="d-flex align-items-center gap-3">
                     <span class="fw-bold text-muted"><i class="bi bi-person-circle"></i> Hola, Samuel</span>
-                    <a href="../logout.php" class="btn btn-outline-danger btn-sm fw-bold"><i class="bi bi-box-arrow-right"></i> Salir</a>
+                    <a href="<?= url('/') ?>" class="btn btn-outline-danger btn-sm fw-bold"><i class="bi bi-box-arrow-right"></i> Salir</a>
                 </div>
             </div>
         </div>
@@ -116,6 +115,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="<?= asset('js/script.js') ?>"></script>
 </body>
 </html>
