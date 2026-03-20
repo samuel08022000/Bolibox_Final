@@ -572,3 +572,118 @@ h3.text-naranja i {
         display: none;
     }
 }
+/* =========================================
+   SIDEBAR Y DASHBOARD ADMIN (Estilo Elegante)
+========================================= */
+.admin-layout { 
+    display: flex; 
+    min-height: 100vh; 
+    background-color: var(--bg-gris-claro); 
+}
+
+.sidebar { 
+    width: 260px; 
+    background-color: #1a1a2e; /* Color oscuro profesional */
+    color: white; 
+    position: fixed; 
+    height: 100vh; 
+    overflow-y: auto; 
+    z-index: 1000; 
+    box-shadow: 4px 0 15px rgba(0,0,0,0.05);
+}
+
+.sidebar-header { 
+    padding: 30px 20px; 
+    text-align: center; 
+    border-bottom: 1px solid rgba(255,255,255,0.05); 
+    margin-bottom: 15px; 
+}
+
+.sidebar-link { 
+    color: #9aa0a6; 
+    padding: 14px 24px; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    font-weight: 500; 
+    transition: 0.3s; 
+    border-left: 4px solid transparent; 
+}
+
+.sidebar-link:hover, .sidebar-link.active { 
+    color: white; 
+    background: rgba(255, 140, 0, 0.1); 
+    border-left-color: var(--naranja); 
+}
+
+.sidebar-link i { font-size: 1.2rem; }
+
+.main-content { 
+    flex-grow: 1; 
+    margin-left: 260px; /* Deja el espacio para el sidebar */
+    padding: 30px 40px; 
+}
+
+.admin-topbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 30px; 
+}
+
+/* Tarjetas de Estadísticas (Widgets) */
+.widget-card { 
+    border: none; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
+    padding: 24px; 
+    display: flex; 
+    flex-direction: column; 
+    position: relative; 
+    background: white; 
+    height: 100%;
+}
+
+.widget-dark { 
+    background-color: #1a1a2e; 
+    color: white; 
+}
+
+.widget-icon { 
+    position: absolute; 
+    right: 20px; 
+    top: 20px; 
+    font-size: 1.8rem; 
+    color: var(--naranja); 
+}
+
+.widget-card .value { 
+    font-size: 2.2rem; 
+    font-weight: 800; 
+    margin-top: 15px; 
+    color: #1a1a2e;
+}
+
+.widget-dark .value { color: white; }
+
+.widget-card .label { 
+    font-size: 0.85rem; 
+    color: #888; 
+    font-weight: 600; 
+}
+
+.widget-dark .label { color: #aaa; }
+
+/* Contenedores de Gráficos */
+.chart-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 992px) {
+    .sidebar { transform: translateX(-100%); }
+    .main-content { margin-left: 0; padding: 20px; }
+}
