@@ -7,61 +7,66 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
+    <style>
+        body { padding-top: 0; }
+    </style>
 </head>
 <body>
     
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand" href="<?= url('empleado') ?>"><i class="bi bi-box-seam text-naranja"></i> BOLI<span class="text-naranja">BOX</span> | Empleado</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuEmpleado">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuEmpleado">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" href="<?= url('empleado') ?>"><i class="bi bi-house-door"></i> Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= url('empleado/pedidos') ?>"><i class="bi bi-clipboard-data"></i> Pedidos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= url('empleado/clientes') ?>"><i class="bi bi-people"></i> Clientes</a></li>
-                </ul>
-                <div class="d-flex">
-                    <a href="<?= url('/') ?>" class="btn btn-outline-dark btn-sm fw-bold"><i class="bi bi-box-arrow-right"></i> Salir</a>
-                </div>
+<div class="admin-layout">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="bi bi-person-badge display-4 text-naranja"></i>
+            <h5 class="mt-3 fw-bold mb-0">Empleado Bolibox</h5>
+            <small class="text-muted">Portal de Atención</small>
+        </div>
+        <div class="nav flex-column mb-auto">
+            <a class="sidebar-link active" href="<?= url('empleado') ?>"><i class="bi bi-house-door"></i> Inicio</a>
+            <a class="sidebar-link" href="<?= url('empleado/pedidos') ?>"><i class="bi bi-clipboard-data"></i> Pedidos</a>
+            <a class="sidebar-link" href="<?= url('empleado/clientes') ?>"><i class="bi bi-people"></i> Clientes</a>
+        </div>
+        <div class="p-3 mt-auto" style="border-top: 1px solid rgba(255,255,255,0.05);">
+            <a href="<?= url('/') ?>" class="btn btn-outline-danger w-100 fw-bold d-flex justify-content-center align-items-center gap-2">
+                <i class="bi bi-box-arrow-left"></i> Salir
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="admin-topbar">
+            <div>
+                <h3 class="fw-bold m-0" style="color: var(--gris-oscuro);">Generar Nuevo Pedido</h3>
+                <p class="text-muted small m-0">Ingresa los datos para registrar una nueva solicitud</p>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn btn-light rounded-circle shadow-sm"><i class="bi bi-bell"></i></button>
             </div>
         </div>
-    </nav>
 
-    <div class="container py-5 mt-3">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card border-naranja h-100">
-                    <div class="card-header bg-naranja text-white fw-bold py-3">
-                        <i class="bi bi-file-earmark-plus"></i> Generar Nuevo Pedido
-                    </div>
+            <div class="col-lg-10">
+                <div class="card border-top border-naranja border-4">
                     <div class="card-body p-4">
                         <form action="<?= url('empleado/pedidos/nuevo') ?>" method="POST">
                             <div class="row">
                                 <div class="col-md-6 mb-4">
-                                    <label class="form-label fw-bold small">Nombre del Cliente</label>
-                                    <input type="text" name="nombre_cliente" class="form-control" placeholder="Ingrese el nombre completo" required>
+                                    <label class="form-label fw-bold small text-muted">ID del Cliente</label>
+                                    <input type="number" name="id_cliente" class="form-control" placeholder="Ej: 1" required>
                                 </div>
                                 
                                 <div class="col-md-6 mb-4">
-                                    <label class="form-label fw-bold small">Producto a Importar</label>
+                                    <label class="form-label fw-bold small text-muted">Ubicación del Cliente</label>
+                                    <input type="text" name="ubicacion_cliente" class="form-control" placeholder="Dirección de entrega" required>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label fw-bold small text-muted">Producto a Importar</label>
                                     <input type="text" name="nombre_producto" class="form-control" placeholder="Ej: Laptop Dell Alienware" required>
                                 </div>
                                 
                                 <div class="col-md-6 mb-4">
-                                    <label class="form-label fw-bold small">Almacén Destino</label>
-                                    <select name="id_almacen" class="form-select" required>
-                                        <option value="" selected disabled>-- Elegir Almacén --</option>
-                                        <option value="La Paz">La Paz</option>
-                                        <option value="Cochabamba">Cochabamba</option>
-                                        <option value="Santa Cruz">Santa Cruz</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="col-md-6 mb-4">
-                                    <label class="form-label fw-bold small text-naranja">Adelanto Cobrado ($us)</label>
-                                    <input type="number" name="monto_adelanto" class="form-control border-naranja" placeholder="Ej: 500.00" step="0.01" required>
+                                    <label class="form-label fw-bold small text-naranja">Total Estimado ($us)</label>
+                                    <input type="number" name="total" class="form-control border-naranja" placeholder="Ej: 500.00" step="0.01" required>
                                 </div>
                             </div>
                             
@@ -69,7 +74,7 @@
                             
                             <div class="text-end">
                                 <button type="reset" class="btn btn-light me-2 fw-bold">Limpiar Campos</button>
-                                <button type="submit" class="btn bg-naranja text-white px-4 fw-bold">Confirmar y Guardar Pedido</button>
+                                <button type="submit" class="btn bg-naranja text-white px-4 fw-bold"><i class="bi bi-check-circle"></i> Confirmar Pedido</button>
                             </div>
                         </form>
                     </div>
@@ -77,7 +82,8 @@
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

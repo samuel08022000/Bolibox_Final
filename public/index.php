@@ -9,6 +9,10 @@ $basePath = str_replace('/public', '', dirname($_SERVER['SCRIPT_NAME']));
 if ($basePath !== '/' && strpos($path, $basePath) === 0) {
     $path = substr($path, strlen($basePath));
 }
+
+// NUEVO: Limpiar la barra diagonal (/) al final de la ruta si el usuario la escribe por accidente
+$path = rtrim($path, '/');
+
 if ($path === '' || $path === false) $path = '/';
 
 // SIMULADOR DE RUTAS: Aquí defines qué archivo de /views se muestra
@@ -17,7 +21,7 @@ switch ($path) {
     // RUTAS PÚBLICAS Y DE AUTENTICACIÓN
     // ==========================================
     case '/':
-        require __DIR__ . '/../views/index.php'; // Corregido: faltaba el punto y coma (;)
+        require __DIR__ . '/../views/index.php'; 
         break;
     case '/registro':
         require __DIR__ . '/../views/registro.php';
@@ -30,11 +34,9 @@ switch ($path) {
         require __DIR__ . '/../views/cliente/cliente.php';
         break;
     case '/productos':
-        // Asegúrate de crear este archivo si aún no existe
         require __DIR__ . '/../views/cliente/productos.php'; 
         break;
     case '/mis_pedidos':
-        // Asegúrate de crear este archivo si aún no existe
         require __DIR__ . '/../views/cliente/mis_pedidos.php'; 
         break;
 

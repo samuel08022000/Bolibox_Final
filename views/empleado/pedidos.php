@@ -7,31 +7,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
+    <style>
+        body { padding-top: 0; }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand" href="<?= url('empleado') ?>"><i class="bi bi-box-seam text-naranja"></i> BOLI<span class="text-naranja">BOX</span> | Empleado</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuEmpleado">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuEmpleado">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link" href="<?= url('empleado') ?>"><i class="bi bi-house-door"></i> Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="<?= url('empleado/pedidos') ?>"><i class="bi bi-clipboard-data"></i> Pedidos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= url('empleado/clientes') ?>"><i class="bi bi-people"></i> Clientes</a></li>
-                </ul>
-                <div class="d-flex">
-                    <a href="<?= url('/') ?>" class="btn btn-outline-dark btn-sm fw-bold"><i class="bi bi-box-arrow-right"></i> Salir</a>
-                </div>
-            </div>
+<div class="admin-layout">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="bi bi-person-badge display-4 text-naranja"></i>
+            <h5 class="mt-3 fw-bold mb-0">Empleado Bolibox</h5>
+            <small class="text-muted">Portal de Atención</small>
         </div>
-    </nav>
+        <div class="nav flex-column mb-auto">
+            <a class="sidebar-link" href="<?= url('empleado') ?>"><i class="bi bi-house-door"></i> Inicio</a>
+            <a class="sidebar-link active" href="<?= url('empleado/pedidos') ?>"><i class="bi bi-clipboard-data"></i> Pedidos</a>
+            <a class="sidebar-link" href="<?= url('empleado/clientes') ?>"><i class="bi bi-people"></i> Clientes</a>
+        </div>
+        <div class="p-3 mt-auto" style="border-top: 1px solid rgba(255,255,255,0.05);">
+            <a href="<?= url('/') ?>" class="btn btn-outline-danger w-100 fw-bold d-flex justify-content-center align-items-center gap-2">
+                <i class="bi bi-box-arrow-left"></i> Salir
+            </a>
+        </div>
+    </div>
 
-    <div class="container py-4 mt-3">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-bold text-naranja m-0"><i class="bi bi-clipboard-data"></i> Seguimiento de Pedidos</h3>
+    <div class="main-content">
+        <div class="admin-topbar">
+            <div>
+                <h3 class="fw-bold m-0" style="color: var(--gris-oscuro);">Seguimiento de Pedidos</h3>
+                <p class="text-muted small m-0">Visualiza el historial de solicitudes de clientes</p>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn btn-light rounded-circle shadow-sm"><i class="bi bi-bell"></i></button>
+            </div>
         </div>
         
         <div class="card">
@@ -41,11 +50,11 @@
                         <thead>
                             <tr>
                                 <th>ID Pedido</th>
-                                <th>Cliente</th>
                                 <th>Fecha</th>
                                 <th>Total</th>
-                                <th>Estado</th>
-                                <th>Ver</th>
+                                <th>Ubicación</th>
+                                <th>ID Cliente</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,7 +67,8 @@
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

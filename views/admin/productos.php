@@ -7,37 +7,49 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
+    <style>
+        body { padding-top: 0; }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand" href="<?= url('admin') ?>"><i class="bi bi-box-seam text-naranja"></i> BOLI<span class="text-naranja">BOX</span> | Admin</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuAdmin">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuAdmin">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link" href="<?= url('admin') ?>"><i class="bi bi-house-door"></i> Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="<?= url('admin/productos') ?>"><i class="bi bi-box"></i> Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= url('admin/proveedores') ?>"><i class="bi bi-truck"></i> Proveedores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= url('admin/clientes') ?>"><i class="bi bi-people"></i> Clientes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= url('admin/empleados') ?>"><i class="bi bi-person-badge"></i> Empleados</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= url('admin/pedidos') ?>"><i class="bi bi-clipboard-data"></i> Pedidos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= url('admin/stock') ?>"><i class="bi bi-boxes"></i> Stock</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= url('admin/bitacoras') ?>"><i class="bi bi-journal-text"></i> Bitácora</a></li>
-                </ul>
-                <div class="d-flex">
-                    <a href="<?= url('/') ?>" class="btn btn-danger btn-sm px-3 fw-bold"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
-                </div>
+<div class="admin-layout">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="bi bi-person-circle display-4 text-naranja"></i>
+            <h5 class="mt-3 fw-bold mb-0">Admin Bolibox</h5>
+            <small class="text-muted">Panel de Control</small>
+        </div>
+        <div class="nav flex-column mb-auto">
+            <a class="sidebar-link" href="<?= url('admin') ?>"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+            <a class="sidebar-link" href="<?= url('admin/pedidos') ?>"><i class="bi bi-box-seam"></i> Pedidos</a>
+            <a class="sidebar-link active" href="<?= url('admin/productos') ?>"><i class="bi bi-tag-fill"></i> Productos</a>
+            <a class="sidebar-link" href="<?= url('admin/clientes') ?>"><i class="bi bi-people-fill"></i> Clientes</a>
+            <a class="sidebar-link" href="<?= url('admin/proveedores') ?>"><i class="bi bi-truck"></i> Proveedores</a>
+            <a class="sidebar-link" href="<?= url('admin/stock') ?>"><i class="bi bi-boxes"></i> Stock</a>
+            <a class="sidebar-link" href="<?= url('admin/empleados') ?>"><i class="bi bi-person-badge-fill"></i> Empleados</a>
+            <a class="sidebar-link" href="<?= url('admin/bitacoras') ?>"><i class="bi bi-journal-text"></i> Bitácora</a>
+        </div>
+        <div class="p-3 mt-auto" style="border-top: 1px solid rgba(255,255,255,0.05);">
+            <a href="<?= url('/') ?>" class="btn btn-outline-danger w-100 fw-bold d-flex justify-content-center align-items-center gap-2">
+                <i class="bi bi-box-arrow-left"></i> Salir
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="admin-topbar">
+            <div>
+                <h3 class="fw-bold m-0" style="color: #1a1a2e;">Catálogo de Productos</h3>
+                <p class="text-muted small m-0">Gestión de artículos importados</p>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn btn-light rounded-circle shadow-sm"><i class="bi bi-bell"></i></button>
             </div>
         </div>
-    </nav>
 
-    <div class="container py-4 mt-3">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-bold text-naranja m-0"><i class="bi bi-box"></i> Gestión de Productos</h3>
-            <button class="btn bg-naranja text-white fw-bold"><i class="bi bi-plus-circle"></i> Registrar Producto</button>
+        <div class="d-flex justify-content-end mb-4">
+            <button class="btn btn-naranja text-white fw-bold"><i class="bi bi-plus-circle"></i> Registrar Producto</button>
         </div>
         
         <div class="card">
@@ -47,43 +59,23 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Producto</th>
-                                <th>Origen</th>
-                                <th>Precio</th>
-                                <th>Stock</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Categoría</th>
+                                <th>Precio Unitario</th>
+                                <th>ID Proveedor</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="fw-bold">1</td>
-                                <td>Audífonos Bluetooth</td>
-                                <td>China</td>
-                                <td>120 Bs</td>
-                                <td><span class="badge bg-success">25</span></td>
-                                <td>
-                                    <button class="btn btn-sm btn-outline-dark"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold">2</td>
-                                <td>Smartwatch</td>
-                                <td>USA</td>
-                                <td>250 Bs</td>
-                                <td><span class="badge bg-warning text-dark">10</span></td>
-                                <td>
-                                    <button class="btn btn-sm btn-outline-dark"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
+                            </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
